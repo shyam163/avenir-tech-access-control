@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avenir Tech - Integrated Security System Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card.primary {
+            border-left-color: #3498db;
+        }
+
+        .feature-card.success {
+            border-left-color: #27ae60;
+        }
+
+        .feature-card.warning {
+            border-left-color: #f39c12;
+        }
+
+        .feature-card.danger {
+            border-left-color: #e74c3c;
+        }
+
+        .feature-card.info {
+            border-left-color: #9b59b6;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .diagram-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .floor-breakdown {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .floor-item {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .floor-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .area-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .area-item {
+            padding: 8px 15px;
+            background: #e9ecef;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section-header {
+                font-size: 1.5rem;
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏢 Avenir Tech Building</h1>
+            <p>🔐 Integrated Security & Access Control System</p>
+        </div>
+
+        <div class="content">
+            <!-- SYSTEM OVERVIEW -->
+            <div class="section">
+                <div class="section-header">
+                    🎯 System Overview
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card primary">
+                        <div class="feature-title">🌐 IP-Based Access Control</div>
+                        <ul class="feature-list">
+                            <li>Modern IP terminals at each door</li>
+                            <li>Integrated card readers and biometric scanners</li>
+                            <li>HD video recording at access points</li>
+                            <li>Centralized network management</li>
+                            <li>Automated attendance tracking system</li>
+                            <li>Seamless Active Directory integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card success">
+                        <div class="feature-title">🚗 Vehicle Access Management</div>
+                        <ul class="feature-list">
+                            <li>Automated boom barriers</li>
+                            <li>License plate recognition system</li>
+                            <li>Employee vehicle database</li>
+                            <li>Visitor vehicle management</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card warning">
+                        <div class="feature-title">⚡ Regional Lock Security</div>
+                        <ul class="feature-list">
+                            <li>Fail-safe locks for offices and common areas</li>
+                            <li>Fail-secure locks for server and storage rooms</li>
+                            <li>Code-compliant fire safety compliance</li>
+                            <li>Data security in critical areas</li>
+                            <li>Emergency unlock capabilities</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card danger">
+                        <div class="feature-title">👥 User Management</div>
+                        <ul class="feature-list">
+                            <li>Support for 400+ employees</li>
+                            <li>Multi-modal authentication</li>
+                            <li>Time-based access control</li>
+                            <li>Comprehensive audit trails</li>
+                            <li>Seamless Active Directory integration</li>
+                            <li>Zero learning curve for administrators</li>
+                            <li>Automatic role-based access provisioning</li>
+                            <li>Real-time employee lifecycle management</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card info">
+                        <div class="feature-title">⚡ Electrical Monitoring</div>
+                        <ul class="feature-list">
+                            <li>Real-time power consumption tracking</li>
+                            <li>Zone-wise electrical usage monitoring</li>
+                            <li>Historical consumption analytics</li>
+                            <li>Custom hardware implementation</li>
+                            <li>Dedicated monitoring dashboard</li>
+                            <li>Energy efficiency optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card success">
+                        <div class="feature-title">❄️ HVAC Control & Monitoring</div>
+                        <ul class="feature-list">
+                            <li>Automated temperature and humidity control</li>
+                            <li>Zone-wise climate management</li>
+                            <li>Occupancy-based scheduling</li>
+                            <li>Energy optimization for cooling/heating</li>
+                            <li>Remote mobile control</li>
+                            <li>Equipment monitoring and alerts</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card primary">
+                        <div class="feature-title">🤖 AI Camera Monitoring</div>
+                        <ul class="feature-list">
+                            <li>Intelligent person detection and tracking</li>
+                            <li>Perimeter intrusion detection with alerts</li>
+                            <li>Crowd and loitering detection</li>
+                            <li>Abandoned object detection</li>
+                            <li>Vehicle behavior analysis</li>
+                            <li>Face recognition and blacklist alerts</li>
+                            <li>Real-time analytics and heat maps</li>
+                            <li>Integration with existing or new CCTV system</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUILDING COVERAGE -->
+            <div class="section">
+                <div class="section-header">
+                    🏗️ Building Coverage
+                </div>
+                <div class="floor-breakdown">
+                    <div class="floor-item">
+                        <div class="floor-title">🏬 Ground Floor - 10 Controlled Areas</div>
+                        <div class="area-list">
+                            <div class="area-item">⚡ Electrical Room</div>
+                            <div class="area-item">🌐 Networking Room</div>
+                            <div class="area-item">📹 Camera/Storage Room</div>
+                            <div class="area-item">🎬 Recording Studio</div>
+                            <div class="area-item">🎭 Preview Theatre</div>
+                            <div class="area-item">🍽️ Kitchen</div>
+                            <div class="area-item">🍴 Restaurant</div>
+                            <div class="area-item">🎨 Green Room</div>
+                            <div class="area-item">📦 Storage</div>
+                            <div class="area-item">🏨 Reception</div>
+                        </div>
+                    </div>
+
+                    <div class="floor-item">
+                        <div class="floor-title">🏢 First Floor - 7 Controlled Areas</div>
+                        <div class="area-list">
+                            <div class="area-item">⚡ Electrical Room</div>
+                            <div class="area-item">🏢 Manager's Cabin</div>
+                            <div class="area-item">🎬 Recording Studio</div>
+                            <div class="area-item">🛏️ Bed Room</div>
+                            <div class="area-item">🤝 Conference Room</div>
+                            <div class="area-item">📦 Store Room</div>
+                            <div class="area-item">🍽️ Pantry</div>
+                        </div>
+                    </div>
+
+                    <div class="floor-item">
+                        <div class="floor-title">🏗️ Second Floor - 7 Controlled Areas</div>
+                        <div class="area-list">
+                            <div class="area-item">⚡ Electrical Room</div>
+                            <div class="area-item">💰 Accounts Office</div>
+                            <div class="area-item">⚖️ Legal Office</div>
+                            <div class="area-item">👥 HR Office</div>
+                            <div class="area-item">📋 Administration</div>
+                            <div class="area-item">🎛️ Console Rooms</div>
+                            <div class="area-item">🎵 Music Listening Room</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AUTHENTICATION METHODS -->
+            <div class="section">
+                <div class="section-header">
+                    🔐 Authentication & Access Methods
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card primary">
+                        <div class="feature-title">💳 RFID Access Cards</div>
+                        <ul class="feature-list">
+                            <li>Photo ID integration</li>
+                            <li>Encrypted card technology</li>
+                            <li>Employee identification</li>
+                            <li>Visitor card management</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card success">
+                        <div class="feature-title">👆 Biometric Authentication</div>
+                        <ul class="feature-list">
+                            <li>Fingerprint scanning</li>
+                            <li>Face recognition capability</li>
+                            <li>Anti-spoofing technology</li>
+                            <li>High accuracy identification</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card warning">
+                        <div class="feature-title">🔢 PIN Code Access</div>
+                        <ul class="feature-list">
+                            <li>Backup authentication method</li>
+                            <li>Temporary access codes</li>
+                            <li>Emergency access capability</li>
+                            <li>User-configurable codes</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card info">
+                        <div class="feature-title">🚗 Vehicle Recognition</div>
+                        <ul class="feature-list">
+                            <li>Automatic license plate reading</li>
+                            <li>Vehicle database matching</li>
+                            <li>Visitor vehicle tracking</li>
+                            <li>Integration with employee records</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETWORK ARCHITECTURE DIAGRAM -->
+            <div class="section">
+                <div class="section-header">
+                    📊 System Architecture
+                </div>
+                <div class="diagram-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🌐 Network Architecture</h3>
+                    <svg width="100%" height="400" viewBox="0 0 1000 400" style="border: 1px solid #e9ecef; border-radius: 8px;">
+                        <!-- Internet -->
+                        <rect x="450" y="20" width="100" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5"/>
+                        <text x="500" y="40" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Internet</text>
+
+                        <!-- Core Router -->
+                        <rect x="430" y="80" width="140" height="40" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="5"/>
+                        <text x="500" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Core Network</text>
+
+                        <!-- Management Display -->
+                        <rect x="750" y="90" width="120" height="30" fill="#9b59b6" stroke="#8e44ad" stroke-width="2" rx="5"/>
+                        <text x="810" y="110" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Management Display</text>
+
+                        <!-- Floor Switches -->
+                        <rect x="150" y="180" width="100" height="40" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5"/>
+                        <text x="200" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Ground Floor</text>
+                        <text x="200" y="210" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Network</text>
+
+                        <rect x="450" y="180" width="100" height="40" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5"/>
+                        <text x="500" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">First Floor</text>
+                        <text x="500" y="210" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Network</text>
+
+                        <rect x="750" y="180" width="100" height="40" fill="#27ae60" stroke="#229954" stroke-width="2" rx="5"/>
+                        <text x="800" y="195" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Second Floor</text>
+                        <text x="800" y="210" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Network</text>
+
+                        <!-- Access Points -->
+                        <circle cx="120" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="120" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="200" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="200" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="280" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="280" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="420" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="420" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="500" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="500" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="580" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="580" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="720" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="720" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="800" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="800" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <circle cx="880" cy="280" r="20" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+                        <text x="880" y="285" text-anchor="middle" fill="white" font-size="8">Door</text>
+
+                        <!-- Vehicle System -->
+                        <rect x="50" y="330" width="80" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="5"/>
+                        <text x="90" y="350" text-anchor="middle" fill="white" font-size="10">Vehicle System</text>
+
+                        <!-- Connection Lines -->
+                        <line x1="500" y1="50" x2="500" y2="80" stroke="#34495e" stroke-width="2"/>
+                        <line x1="570" y1="100" x2="750" y2="105" stroke="#34495e" stroke-width="2"/>
+
+                        <line x1="460" y1="120" x2="200" y2="180" stroke="#34495e" stroke-width="2"/>
+                        <line x1="500" y1="120" x2="500" y2="180" stroke="#34495e" stroke-width="2"/>
+                        <line x1="540" y1="120" x2="800" y2="180" stroke="#34495e" stroke-width="2"/>
+
+                        <line x1="170" y1="220" x2="120" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="200" y1="220" x2="200" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="230" y1="220" x2="280" y2="260" stroke="#27ae60" stroke-width="2"/>
+
+                        <line x1="470" y1="220" x2="420" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="500" y1="220" x2="500" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="530" y1="220" x2="580" y2="260" stroke="#27ae60" stroke-width="2"/>
+
+                        <line x1="770" y1="220" x2="720" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="800" y1="220" x2="800" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="830" y1="220" x2="880" y2="260" stroke="#27ae60" stroke-width="2"/>
+
+                        <line x1="150" y1="200" x2="90" y2="330" stroke="#e74c3c" stroke-width="2"/>
+
+                        <!-- Legend -->
+                        <text x="50" y="380" fill="#2c3e50" font-size="10" font-weight="bold">🔵 Network Connection  🟢 Floor Distribution  🟠 Access Control  🔴 Vehicle System</text>
+                    </svg>
+                </div>
+            </div>
+
+
+            <!-- SYSTEM SUMMARY -->
+            <div class="summary-section">
+                <h2 style="text-align: center; margin-bottom: 20px;">📊 Complete System Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h3>🏢 Coverage</h3>
+                        <ul>
+                            <li><strong>24 Controlled Doors</strong></li>
+                            <li>3 Building Floors</li>
+                            <li>Vehicle Entry/Exit Points</li>
+                            <li>400+ Employee Support</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>🔐 Security Features</h3>
+                        <ul>
+                            <li>Multi-Modal Authentication</li>
+                            <li>HD Video Recording</li>
+                            <li>License Plate Recognition</li>
+                            <li>Emergency Access Control</li>
+                            <li>Attendance Management</li>
+                            <li>Active Directory Integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>🌐 Technology</h3>
+                        <ul>
+                            <li>IP-Based Architecture</li>
+                            <li>Network Power Delivery</li>
+                            <li>Centralized Management</li>
+                            <li>Real-Time Monitoring</li>
+                            <li>Custom Electrical Monitoring</li>
+                            <li>HVAC Control & Automation</li>
+                            <li>AI-Powered Camera Analytics</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>⚡ Power & Control</h3>
+                        <ul>
+                            <li>PoE Network Infrastructure</li>
+                            <li>Simplified Cabling</li>
+                            <li>Remote Power Management</li>
+                            <li>Energy Efficient Design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                    <h3>🎯 Complete Integrated Security Solution</h3>
+                    <p style="margin-top: 15px; font-size: 1.1rem;">
+                        A comprehensive building management system combining access control, vehicle management,
+                        employee authentication, electrical monitoring, HVAC automation, and AI-powered camera monitoring
+                        in a unified, network-based platform designed for complete enterprise facility management and security.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
