@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This repository contains the development of an access control system with building automation for **Avenir Tech** (owned by Irshad). The system integrates:
+This repository contains the development of an access control system with building automation proposal by **Quantum Automata** for **Avenir Tech** (owned by Irshad). The system integrates:
 
 - Access Control
 - HVAC Management
@@ -35,10 +35,11 @@ diagrams/
 
 ## Project Context
 
-**Company**: Avenir Tech
-**Owner**: Irshad
+**Service Provider**: Quantum Automata
+**Client Company**: Avenir Tech
+**Client Owner**: Irshad
 **Project**: Integrated Access Control & Building Automation System
-**Current Phase**: Planning and Architecture
+**Current Phase**: Proposal and Technical Specifications
 
 The building diagrams serve as reference for understanding the physical infrastructure that the access control system will manage and monitor.
 
