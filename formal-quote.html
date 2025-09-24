@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avenir Tech - System Integration Quote</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .quote-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .quote-details h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .quote-details p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .systems-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 300;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        .system-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .system-item:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .system-header {
+            background: #fff;
+            padding: 25px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .system-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .system-description {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .system-details {
+            padding: 25px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .features-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .pricing-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .pricing-table th {
+            background: #2c3e50;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .pricing-table td {
+            font-size: 0.95rem;
+        }
+
+        .pricing-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .price-amount {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .optional {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .total-row {
+            background: #ecf0f1 !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .total-row td {
+            border-top: 2px solid #bdc3c7;
+            padding: 25px 20px;
+        }
+
+        .terms-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .terms-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .terms-list {
+            list-style: decimal;
+            margin-left: 20px;
+        }
+
+        .terms-list li {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .quote-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 15px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>System Integration Quotation</h1>
+            <div class="subtitle">Integrated Security & Building Automation Solution</div>
+        </div>
+
+        <div class="content">
+            <div class="quote-info">
+                <div class="quote-details">
+                    <h3>Client Information</h3>
+                    <p><strong>Company:</strong> Avenir Tech</p>
+                    <p><strong>Project:</strong> Access Control & Building Automation</p>
+                    <p><strong>Location:</strong> 3-Floor Commercial Building</p>
+                    <p><strong>Coverage:</strong> 24 Controlled Access Points</p>
+                </div>
+                <div class="quote-details">
+                    <h3>Quotation Details</h3>
+                    <p><strong>Quote Number:</strong> AVT-2025-001</p>
+                    <p><strong>Date:</strong> September 24, 2025</p>
+                    <p><strong>Validity:</strong> 30 days from date of issue</p>
+                    <p><strong>Prepared By:</strong> System Integration Team</p>
+                </div>
+            </div>
+
+            <div class="systems-section">
+                <h2 class="section-title">System Components & Specifications</h2>
+
+                <div class="system-item">
+                    <div class="system-header">
+                        <div class="system-title">🔐 Door Access Control System</div>
+                        <div class="system-description">
+                            Comprehensive IP-based access control solution with biometric authentication,
+                            card readers, and centralized management for 24 controlled doors across all floors.
+                        </div>
+                    </div>
+                    <div class="system-details">
+                        <ul class="features-list">
+                            <li>IP Access Terminals with integrated card readers and fingerprint scanners</li>
+                            <li>Electric strike locks with fail-safe/fail-secure configurations</li>
+                            <li>Multi-modal authentication (RFID cards, biometrics, PIN codes)</li>
+                            <li>Real-time access logging and comprehensive audit trails</li>
+                            <li>Time-based access control and scheduling</li>
+                            <li>Emergency override and fire safety integration</li>
+                            <li>HikCentral unified management platform</li>
+                            <li>Active Directory integration for seamless user management</li>
+                            <li>Automated attendance tracking and reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="system-item">
+                    <div class="system-header">
+                        <div class="system-title">🚗 Vehicle Ingress Management</div>
+                        <div class="system-description">
+                            Automated vehicle access control with license plate recognition technology
+                            and boom barrier integration for secure entry and exit management.
+                        </div>
+                    </div>
+                    <div class="system-details">
+                        <ul class="features-list">
+                            <li>Automatic License Plate Recognition (ALPR) cameras</li>
+                            <li>Automated boom barriers for entry and exit points</li>
+                            <li>Vehicle database management and whitelist/blacklist functionality</li>
+                            <li>Real-time vehicle tracking and logging</li>
+                            <li>Visitor vehicle registration and management</li>
+                            <li>Integration with access control system</li>
+                            <li>Mobile notifications and alerts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="system-item">
+                    <div class="system-header">
+                        <div class="system-title">🌐 Network Infrastructure (Optional)</div>
+                        <div class="system-description">
+                            Enterprise-grade network infrastructure with PoE capabilities to support
+                            all connected devices and ensure reliable system operation.
+                        </div>
+                    </div>
+                    <div class="system-details">
+                        <ul class="features-list">
+                            <li>Managed PoE+ switches for power and data delivery</li>
+                            <li>Enterprise-grade core router with firewall capabilities</li>
+                            <li>Structured Cat6 cabling throughout the building</li>
+                            <li>Network redundancy and backup systems</li>
+                            <li>Remote network monitoring and management</li>
+                            <li>Scalable architecture for future expansion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="system-item">
+                    <div class="system-header">
+                        <div class="system-title">🏗️ Building Management System</div>
+                        <div class="system-description">
+                            Integrated building automation including power monitoring, HVAC control,
+                            and AI-powered camera monitoring for comprehensive facility management.
+                        </div>
+                    </div>
+                    <div class="system-details">
+                        <ul class="features-list">
+                            <li><strong>Power Monitoring:</strong> Real-time electrical consumption tracking and analytics</li>
+                            <li><strong>HVAC Control:</strong> Automated climate management with occupancy-based scheduling</li>
+                            <li><strong>AI Camera Monitoring:</strong> Intelligent video analytics with person detection and alerts</li>
+                            <li>Zone-wise monitoring and control capabilities</li>
+                            <li>Energy optimization algorithms and recommendations</li>
+                            <li>Mobile app for remote monitoring and control</li>
+                            <li>Predictive maintenance alerts and notifications</li>
+                            <li>Centralized dashboard with real-time status updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-section">
+                <h2 class="section-title">Investment Breakdown</h2>
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>System Component</th>
+                            <th>Description</th>
+                            <th>Investment (INR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Door Access Control System</strong></td>
+                            <td>Complete access control for 24 doors with biometric authentication</td>
+                            <td class="price-amount">₹12,00,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vehicle Ingress Management</strong></td>
+                            <td>ALPR cameras and boom barriers for automated vehicle access</td>
+                            <td class="price-amount">₹4,00,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network Infrastructure</strong><br><span class="optional">(Optional)</span></td>
+                            <td>Enterprise network setup with PoE switches and cabling</td>
+                            <td class="price-amount">₹6,75,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Building Management System</strong></td>
+                            <td>Power monitoring, HVAC control, and AI camera analytics</td>
+                            <td class="price-amount">₹3,50,000</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="2"><strong>Total Investment (Including Optional)</strong></td>
+                            <td class="price-amount">₹26,25,000</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="2"><strong>Total Investment (Excluding Optional Network)</strong></td>
+                            <td class="price-amount">₹19,50,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="terms-section">
+                <h3 class="terms-title">Terms & Conditions</h3>
+                <ol class="terms-list">
+                    <li><strong>Quotation Validity:</strong> This quotation is valid for 30 days from the date of issue.</li>
+                    <li><strong>Payment Terms:</strong> 40% advance, 40% on delivery, 20% on commissioning and handover.</li>
+                    <li><strong>Installation:</strong> Professional installation and commissioning included in the quoted price.</li>
+                    <li><strong>Warranty:</strong> 2 years comprehensive warranty on all hardware and software components.</li>
+                    <li><strong>Training:</strong> Comprehensive user training and documentation provided at no additional cost.</li>
+                    <li><strong>Support:</strong> 24/7 technical support available through manufacturer's service network.</li>
+                    <li><strong>Customization:</strong> System can be customized based on specific requirements with additional quotation.</li>
+                    <li><strong>Exclusions:</strong> Civil work, electrical conduits, and structural modifications not included.</li>
+                    <li><strong>Timeline:</strong> 4-6 weeks from order confirmation for complete system delivery and commissioning.</li>
+                    <li><strong>GST:</strong> All prices exclusive of applicable taxes and duties.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>Thank you for your interest in our solutions</h3>
+            <p>For any clarifications or modifications to this quotation, please contact us.</p>
+            <p>We look forward to partnering with Avenir Tech for this prestigious project.</p>
+        </div>
+    </div>
+</body>
+</html>
